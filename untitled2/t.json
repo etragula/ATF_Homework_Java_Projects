@@ -1,0 +1,58 @@
+[
+  {
+    "full_name": "qwe",
+    "short_name": "q",
+    "dateOfFoundation" : "1998-12-12",
+    "phones": [
+      "132456",
+      "56487"
+    ],
+    "address":
+      {
+      "city": "M",
+      "street": "stret",
+      "zip": "1341"
+      },
+    "securities": [
+      {
+        "id": 123,
+        "nameofComp": "someComp",
+        "dateTime" : "2011-12-05",
+        "currency": [
+          "EU",
+          "RUB"
+        ]
+      }
+    ],
+    "inn": 1324897654,
+    "ogrn": 34137654
+  },
+  {
+    "full_name": "qwe",
+    "short_name": "q",
+    "dateOfFoundation" : "1998-12-12",
+    "phones": [
+      "132456",
+      "56487"
+    ],
+    "address":
+      {
+        "city": "M",
+        "street": "stret",
+        "zip": "1341"
+      },
+    "securities": [
+      {
+        "id": 123,
+        "nameofComp": "someComp",
+        "dateTime" : "2010-12-05",
+        "currency": [
+          "EU",
+          "RUB"
+        ]
+      }
+    ],
+    "inn": 1324897654,
+    "ogrn": 34137654
+  }
+]
