@@ -1,58 +1,128 @@
 [
   {
-    "full_name": "qwe",
-    "short_name": "q",
-    "dateOfFoundation" : "1998-12-12",
+    "full_name": "Публичное акционерное общество «Мобильные ТелеСистемы»",
+    "short_name": "ПАО «МТС»",
+    "dateOfFoundation" : "1993-12-12",
     "phones": [
-      "132456",
-      "56487"
+      "+7(495)911-65-65",
+      "+7(495)911-66-66"
     ],
     "address":
       {
-      "city": "M",
-      "street": "stret",
-      "zip": "1341"
+      "city": "Москва",
+      "street": "ул. Марксистская, д. 4",
+      "zip": "109147"
       },
     "securities": [
       {
-        "id": 123,
-        "nameofComp": "someComp",
-        "dateTime" : "2011-12-05",
+        "id": 98774,
+        "code": 64534,
+        "nameofComp": "ИПОК ИНТЕРНЕЙНШЕНЛ ГРОУЗ ФАНД ЛИМИТЕД",
+        "dateTime" : "2030-02-09",
         "currency": [
-          "EU",
+          "USD",
           "RUB"
+        ]
+      },
+      {
+        "id": 95213,
+        "code": 100547,
+        "nameofComp": "Банк ВТБ (ПАО)",
+        "dateTime" : "2033-02-09",
+        "currency": [
+          "USD",
+          "EUR"
         ]
       }
     ],
-    "inn": 1324897654,
-    "ogrn": 34137654
+    "inn": 7740000076,
+    "ogrn": 1027700149124
   },
   {
-    "full_name": "qwe",
-    "short_name": "q",
-    "dateOfFoundation" : "1998-12-12",
+    "full_name": "ПУБЛИЧНОЕ АКЦИОНЕРНОЕ ОБЩЕСТВО \"МЕГАФОН\"",
+    "short_name": "ПАО МЕГАФОН",
+    "dateOfFoundation" : "1993-06-17",
     "phones": [
       "132456",
       "56487"
     ],
     "address":
       {
-        "city": "M",
-        "street": "stret",
-        "zip": "1341"
+        "city": "Москва",
+        "street": "ПЕРЕУЛОК ОРУЖЕЙНЫЙ, ДОМ 41",
+        "zip": "127006"
       },
     "securities": [
       {
-        "id": 123,
-        "nameofComp": "someComp",
-        "dateTime" : "2010-12-05",
+        "id": 1001,
+        "code": 58794,
+        "nameofComp": "ОТКРЫТОЕ АКЦИОНЕРНОЕ ОБЩЕСТВО \"ТЕЛЕКОМИНВЕСТ\"",
+        "dateTime" : "2018-05-02",
         "currency": [
-          "EU",
+          "EUR",
           "RUB"
+        ]
+      },
+      {
+        "id": 1021,
+        "code": 52421691,
+        "nameofComp": "ООО \"ЦТ-МОБАЙЛ\"",
+        "dateTime" : "2025-11-05",
+        "currency": [
+          "EUR",
+          "USD"
         ]
       }
     ],
-    "inn": 1324897654,
-    "ogrn": 34137654
+    "inn": 7812014560,
+    "ogrn": 1027809169585
+  },
+  {
+    "full_name": "Общество с ограниченной ответственностью «Т2 Мобайл»",
+    "short_name": "ООО «Т2 Мобайл»",
+    "dateOfFoundation" : "2013-07-17",
+    "phones": [
+      "+7(495)229-84-00"
+    ],
+    "address":
+    {
+      "city": "Москва",
+      "street": "Киевское шоссе 22-й километр",
+      "zip": "108811"
+    },
+    "securities": [
+      {
+        "id": 1246,
+        "code": 11321,
+        "nameofComp": "ЗАО \"Белгородская Сотовая Связь\" (Теле2-Белгород)",
+        "dateTime" : "2028-03-02",
+        "currency": [
+          "EUR",
+          "RUB"
+        ]
+      },
+      {
+        "id": 1247,
+        "code": 13754,
+        "nameofComp": "ЗАО \"МС-Директ\"",
+        "dateTime" : "2026-11-25",
+        "currency": [
+          "EUR",
+          "USD"
+        ]
+      },
+      {
+        "id": 1248,
+        "code": 13444,
+        "nameofComp": "ЗАО \"Скай - 1800\"",
+        "dateTime" : "2016-01-21",
+        "currency": [
+          "EUR",
+          "USD"
+        ]
+      }
+    ],
+    "inn": 7812014560,
+    "ogrn": 1027809169585
   }
 ]

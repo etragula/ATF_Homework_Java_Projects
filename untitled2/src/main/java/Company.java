@@ -8,8 +8,8 @@ public class Company {
     String short_name;
 
     String dateOfFoundation;
-    int ogrn;
-    int inn;
+    long ogrn;
+    long inn;
     String[] phones;
     Address address;
     List<Securities> securities;
@@ -38,7 +38,7 @@ public class Company {
         this.securities = securities;
     }
 
-    public int getOgrn() {
+    public long getOgrn() {
         return ogrn;
     }
 
@@ -46,7 +46,7 @@ public class Company {
         this.ogrn = ogrn;
     }
 
-    public int getInn() {
+    public long getInn() {
         return inn;
     }
 

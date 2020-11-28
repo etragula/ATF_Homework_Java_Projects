@@ -3,6 +3,7 @@ import java.time.format.DateTimeFormatter;
 
 public class Securities {
     int id;
+    int code;
     String nameofComp;
     String[] currency;
     String dateTime;
@@ -10,11 +11,12 @@ public class Securities {
     public Securities() {
     }
 
-    public Securities(int id, String nameofComp, String[] currency, String dateTime) {
+    public Securities(int id, String nameofComp, String[] currency, String dateTime, int code) {
         this.id = id;
         this.nameofComp = nameofComp;
         this.currency = currency;
         this.dateTime = dateTime;
+        this.code = code;
     }
 
     public int getId() {
@@ -39,6 +41,14 @@ public class Securities {
 
     public void setCurrency(String[] currency) {
         this.currency = currency;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
     }
 
     public LocalDate getDateTime() { return LocalDate.parse(dateTime, DateTimeFormatter.ofPattern("yyyy-MM-dd")); }

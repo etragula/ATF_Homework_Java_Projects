@@ -3,17 +3,12 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.google.gson.stream.JsonReader;
-
+import org.apache.commons.validator.GenericValidator;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.Date;
-import java.text.SimpleDateFormat;
+import java.util.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
@@ -28,7 +23,11 @@ public class Main {
 //        showExpireSecur(companyList);
 
         //3
-        showCompaniesOfDate(companyList);
+//        showCompaniesOfDate(companyList);
+
+        //4
+//        showSecuretiesOfCurrency(companyList);
+
     }
 
     public static void showShortInfo(List<Company> companyList) {
@@ -47,10 +46,8 @@ public class Main {
     public static void showExpireSecur(List<Company> companyList) {
         int i = 0;
         int j = 1;
-        for (Company company : companyList)
-        {
-            for(Securities sec : company.getSecurities())
-            {
+        for (Company company : companyList) {
+            for (Securities sec : company.getSecurities()) {
                 if (sec.getDateTime().isBefore(LocalDate.now())) {
                     System.out.println(j++ +
                             ".\tКод - " + sec.getId() +
@@ -60,36 +57,74 @@ public class Main {
                 }
             }
         }
-        System.out.println("Общее число таких бумаг - " + i + ".");
+        System.out.println("Общее число просроченных бумаг - " + i + ".");
     }
 
     public static void showCompaniesOfDate(List<Company> companyList) {
         Scanner scan = new Scanner(System.in);
-        Date date = null;
-        List<DateValidator> dateFormats = DateValidator.getInstance();
-        dateFormats.add(new DateValidator(DateTimeFormatter.ofPattern("dd.MM.yy"));
-        dateFormats.add(new DateValidator(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-        dateFormats.add(new DateValidator(DateTimeFormatter.ofPattern("dd/MM/yy"));
-        dateFormats.add(new DateValidator(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-        String sdata = null;
-        while (!(sdata = scan.nextLine()).equalsIgnoreCase("stop"))
-        {
-            for (SimpleDateFormat format : dateFormats) {
-                try {
-                    format.setLenient(false);
-                    date = format.parse(sdata);
-                } catch (ParseException e) {
-                    System.out.println("Неверный формат даты. Попробуйте снова.\n(Ожидаемый формат: дд.мм.гг ; дд.мм.гггг ; дд/мм/гг ; дд/мм/ггг)");
-                }
-                if (date != null) {
-                    break;
+        String str;
+        boolean check = true;
+        LocalDate date;
+        GenericValidator genericValidator = new GenericValidator();
+        System.out.println("Введите шаблон формата даты: ");
+        while (true){
+            str = scan.nextLine();
+            if (genericValidator.isDate(str, "dd.MM.yyyy", true)) {
+                date = LocalDate.parse(str, DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+                break;
+            } else if (genericValidator.isDate(str, "dd.MM,yy", true)) {
+                date = LocalDate.parse(str, DateTimeFormatter.ofPattern("dd.MM,yy"));
+                break;
+            } else if (genericValidator.isDate(str, "dd/MM/yy", true)) {
+                date = LocalDate.parse(str, DateTimeFormatter.ofPattern("dd/MM/yy"));
+                break;
+            } else if (genericValidator.isDate(str, "dd/MM/yyyy", true)) {
+                date = LocalDate.parse(str, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+                break;
+            } else {
+                System.out.println("Введите один из следующих форматов : «ДД.ММ.ГГГГ», «ДД.ММ,ГГ», «ДД/ММ/ГГГГ» и «ДД/ММ/ГГ».");
+            }
+        }
+        int i = 1;
+        System.out.println("Основаны после " + date + " :");
+        for (Company company : companyList) {
+            if (company.getDateOfFoundation().isAfter(date)) {
+                System.out.println(i++ + ". " + company.getShort_name() + " - " + company.getDateOfFoundation() + ".");
+            }
+        }
+    }
+
+    public static void showSecuretiesOfCurrency(List<Company> companyList){
+        String str;
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Введите сокращенное имя валюты (RUB, USD, EUR): ");
+        while (true){
+            str = scan.nextLine();
+            if (str.equalsIgnoreCase("RUB") ||
+             str.equalsIgnoreCase("USD") ||
+             str.equalsIgnoreCase("EUR")) {
+                break;
+            }
+            else {
+                System.out.println("Введите один из следующих форматов: RUB, USD, EUR.");
+            }
+        }
+        int j = 1;
+        for (Company company : companyList) {
+            for (Securities sec : company.getSecurities()) {
+                for(String currency : sec.currency){
+                    if (currency.equalsIgnoreCase(str)) {
+                        System.out.println(j++ +
+                                ".\tID  - " + sec.getId() +
+                                ".\n\tКод - " + sec.getCode() + ".");
+                    }
                 }
             }
         }
     }
 
     public static <T> List<T> getObjectList(JsonReader jsonString, Class<T> cls) {
-        List<T> list = new ArrayList<T>();
+        List<T> list = new ArrayList<>();
         try {
             Gson gson = new Gson();
             JsonArray arry = new JsonParser().parse(jsonString).getAsJsonArray();
