@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>groupId</groupId>
-    <artifactId>untitled2</artifactId>
+    <artifactId>Companies</artifactId>
     <version>1.0-SNAPSHOT</version>
     <build>
         <plugins>
@@ -19,7 +19,6 @@
             </plugin>
         </plugins>
     </build>
-
     <dependencies>
         <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
         <dependency>
@@ -33,9 +32,6 @@
             <artifactId>commons-validator</artifactId>
             <version>1.4.0</version>
         </dependency>
-
-
-
     </dependencies>
     
 </project>

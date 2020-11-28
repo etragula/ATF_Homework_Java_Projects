@@ -17,16 +17,16 @@ public class Main {
         List<Company> companyList = getObjectList(reader, Company.class);
 
 //        1
-//        showShortInfo(companyList);
-
-        //2
-//        showExpireSecur(companyList);
-
-        //3
-//        showCompaniesOfDate(companyList);
-
-        //4
-//        showSecuretiesOfCurrency(companyList);
+        showShortInfo(companyList);
+//
+//        2
+        showExpireSecur(companyList);
+//
+//        3
+        showCompaniesOfDate(companyList);
+//
+//        4
+        showSecuretiesOfCurrency(companyList);
 
     }
 
@@ -101,8 +101,8 @@ public class Main {
         while (true){
             str = scan.nextLine();
             if (str.equalsIgnoreCase("RUB") ||
-             str.equalsIgnoreCase("USD") ||
-             str.equalsIgnoreCase("EUR")) {
+                    str.equalsIgnoreCase("USD") ||
+                    str.equalsIgnoreCase("EUR")) {
                 break;
             }
             else {
